@@ -1,0 +1,23 @@
+# fly.toml app configuration file generated for 26c6014-job-search-agent on 2026-03-27T11:35:19+05:30
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = '26c6014-job-search-agent'
+primary_region = 'sin'
+
+[build]
+
+[http_service]
+  internal_port = 8501
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '256mb'
+  cpu_kind = 'shared'
+  cpus = 1
+  memory_mb = 256
