@@ -46,5 +46,16 @@ streamlit run app.py
 Deploy on **Streamlit Community Cloud** (set secrets in the dashboard) or Fly.io.
 Public URL + demo video go in the portfolio.
 
+## CI/CD — how deployment works
+Platform-native Git integration on **Streamlit Community Cloud** — no pipeline file:
+
+```
+git push → GitHub → Streamlit Cloud detects the push → app redeploys automatically
+```
+
+One-time setup: create the app on share.streamlit.io pointing at this repo / branch /
+`app.py`, then add keys under **Settings → Secrets** (never commit keys — they load from
+env via `config.py`). Every push to `main` redeploys on its own.
+
 ---
 *Starter scaffold. The implementation is mine, committed step by step.*
